@@ -1,0 +1,80 @@
+{
+  "1769045494159.2468": [
+    {
+      "answer": "值类型：int(整形) bool（布尔）, string（字符串）, float,double,（浮点数）,char(字符),枚举enum，valueType\n引用类型：class，object，referrencetype",
+      "timestamp": "2026/1/22 09:40:07"
+    }
+  ],
+  "1769045584624": [
+    {
+      "answer": "public:对任何类和成员都公开,无限制访问\nprivate:仅对该类公开\nprotected:对该类和其派生类公开\ninternal:只能在包含该类的程序集中访问该类\nprotected internal: protected + internal",
+      "timestamp": "2026/1/22 09:40:07"
+    }
+  ],
+  "1769046584310": [
+    {
+      "answer": "1.interface是接口，可以多继承\n抽象类只能单继承\n2.抽象类是部分抽象，里面可以有实现\n接口是完全抽象\n3.接口不可以被实例化，抽象类可以被实例化",
+      "timestamp": "2026/1/22 09:51:24"
+    }
+  ],
+  "1769046855503": [
+    {
+      "answer": "string builder是在内存中划分一块内存，字符串不够长的时候再分配一块，\n处理字符串相机的时候是在之前划分的那块内存里面处理\nstring的相加本质上是创建一个新的string，\nstring builder依然是原来的string builder",
+      "timestamp": "2026/1/22 09:56:23"
+    }
+  ],
+  "1769047043001": [
+    {
+      "answer": "public int NoXNumber(int x)\n{\n if(x == 1 || x == 2) return 1;\n else return NoXNumber(x-1) + NoXNumber(x-2)\n}",
+      "timestamp": "2026/1/22 10:00:08"
+    }
+  ],
+  "1769047908546": [
+    {
+      "answer": "接口是来约束这个类有什么功能的，可以的多继承，便于管理，委托不知道",
+      "timestamp": "2026/1/22 10:12:29"
+    }
+  ],
+  "1769048168093": [
+    {
+      "answer": "for是通过索引去遍历的，foreach本质上是通过迭代器去遍历的，就和Enumratoe.MoveNext一样",
+      "timestamp": "2026/1/22 10:17:08"
+    }
+  ],
+  "1769048454245": [
+    {
+      "answer": "for遍历是通过索引遍历， 可以删除对象\nforeach是通过迭代器遍历，不能删除对象\n因为删除了的话Ienumrator.moveNext会返回false，不能迭代下去，\n而且不要再update中使用Ienumrator也就是迭代器的foreach\n因为会产生gc，我猜测是这个foreach本身实例出来的IEnumrator对象",
+      "timestamp": "2026/1/22 10:23:02"
+    }
+  ],
+  "1769048797612": [
+    {
+      "answer": "c#是面向对象的，c++是il，internalLanguage基于中间过程的语言\nc#的类不能多继承，c++可以多继承\nc#中bool和int不能直接转换，c++中bool和int可以直接转换",
+      "timestamp": "2026/1/22 10:27:59"
+    }
+  ],
+  "1769049168949": [
+    {
+      "answer": "string是不可变的，每次对string进行修改是通过new 一个新的string，然后修改为新的string的引用\nstringBuilder是可变的",
+      "timestamp": "2026/1/22 10:33:56"
+    }
+  ],
+  "1769049475769": [
+    {
+      "answer": "mathf.round 四舍五入\nmathf.clamp 限制最大最小值\nmathf.lerp，返回区间值，也就是插值",
+      "timestamp": "2026/1/22 10:38:41"
+    }
+  ],
+  "1769049772886": [
+    {
+      "answer": "属性修饰符 serialized：序列化\n类修饰符 sealed abstract，abstract抽象类只能作为基类被继承，\nsealed不能被继承\n成员修饰符\noverride 重写\n访问呢修饰符:public priavte internal protected\npublic 可以被其他类访问\nprivate 只能被自己访问\ninternal 可以在整个工程中访问\nprotected 可以在自身和子类中访问",
+      "timestamp": "2026/1/22 10:45:37"
+    }
+  ],
+  "1769050039518": [
+    {
+      "answer": "装箱是将值类型变成引用类型\n拆箱是将引用类型变成值类型",
+      "timestamp": "2026/1/22 10:47:51"
+    }
+  ]
+}

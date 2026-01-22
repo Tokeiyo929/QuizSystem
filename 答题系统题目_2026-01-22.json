@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1769045494159.2468,
+    "question": "简述值类型和引用类型有什么区别",
+    "answer": "值类型:包含了所有简单类型(整数、浮点、bool、char)、struct、enum.\n继承自System.ValueTyoe\n引用类型包含了string,object,class,interface,delegate,array\n继承自System.Object"
+  },
+  {
+    "id": 1769045584624,
+    "question": "4.请简述private,public,protected,internal的区别",
+    "answer": "public:对任何类和成员都公开,无限制访问\nprivate:仅对该类公开\nprotected:对该类和其派生类公开\ninternal:只能在包含该类的程序集中访问该类\nprotected internal: protected + internal"
+  },
+  {
+    "id": 1769046584310,
+    "question": "请描述Interface与抽象类之间的不同",
+    "answer": "1.接口不是类不能实例化抽象类可以间接实例化\n2.接口是完全抽象抽象类为部分抽象\n3.接口可以多继承抽象类是单继承"
+  },
+  {
+    "id": 1769046855503,
+    "question": "13.C#String类型比stringBuilder类型的优势是什么?",
+    "answer": "如果是处理字符串的话,用string中的方法每次都需要创建一一个新的字符串对象并且分配新的内存地\n址,而stringBuilder是在原来的内存里对字符串进行修改,所以在字符串处理\n方面还是建议用stringBuilder这样比较节约内存。但是string类的方方法和功能仍然还是比stringBuilder\n类要强。\nstring类由于具有不可变性(即对一个string对象进行任何更改时,其实都是创建另外一个string类的\n对象),所以当需要频繁的对一个string类对象进行更改的时候,建议使用StringBuilder类,\nStringBuilder类的原理是首先在内存中开辟一定大小的内存空间,当对此 StringBuilder类对象进行更\n改时,如果内存空间大小不够,会对此内存空间进行扩充,而不是是重新创建一个对象,这样如果对\n一个字符串对象进行频繁操作的时候,不会造成过多的内存浪费,其实本质上并没有很大区别,都是\n用来存储和操作字符串的,唯一的区别就在于性能上。\nString主要用于公共API,通用性好、用途广泛、读取性能高高、占用内存小。\nStringBuilder主要用于拼接String,修改性能好。\n不过现在的编译器已经把String的+操作优化成StringBuilder了,所以一般用String就可以了\nString是不可变的,所以天然线程同步。\nStringBuilder可变,非线程同步。"
+  },
+  {
+    "id": 1769047043001,
+    "question": "15.数列1,1,2,3,5,8,13...第n位数是多少?用C#递归算法实现",
+    "answer": "public int CountNumber(int num) {\n       if (num == 1 || num == 2) {\n           return 1;\n       } else {\n           return CountNumber(num -1) + CountNumber(num-2);\n       }\n  }"
+  },
+  {
+    "id": 1769047908546,
+    "question": "20.C#中委托和接口有什么区别?各用在什么场合?",
+    "answer": "**接口(interface)**是约束类应该具备的功能集合,约束了类应该该具备的功能,使类从千变万化的具\n体逻辑中解脱出来,便于类的管理和扩展,同时又合理解决了类的单继承问题。\nC#中的委托,是约束方法集合的一个类,可以便捷的使用委托对这个方法集合进行操作。\n在以下情况中使用接口:\n1.无法使用继承的场合\n2.完全抽象的场合\n3.多人协作的场合\n以上等等\n在以下情况中使用委托:多用于事件处理中"
+  },
+  {
+    "id": 1769048168093,
+    "question": "23.For,foreach,Enumerator.MoveNext的使用,与内存消耗情况",
+    "answer": "for循环可以通过索引依次进行遍历,foreach和Enumerator.MloveNext通过迭代的方式进行遍历。\n内存消耗上本质上并没有太大的区别。\n但是在Unity中的Update中,一般不推荐使用foreach因为会贵留内存垃圾。"
+  },
+  {
+    "id": 1769048454245,
+    "question": "33.foreach迭代器遍历和for循环遍历的区别",
+    "answer": "如果集合需要foreach遍历,是否可行,存在一定问题\nforeach中的迭代变量item是的只读,不能对其进行修改,比如list.Remove (item)操作\nforeach只读的时候记录下来,在对记录做操作,或者直接用for循环遍历\nforeach对int[数组循环已经不产生GC,避免对ArrayList进行遍历\nfor语句中初始化变量i的作用域,循环体内部可见。\n通过索引进行遍历,可以根据索引对所遍历集合进行修改\nunity中for循环使用lambda表达式注意闭包问题\nforeach遍历原理\n任何集合类(Array)对象都有一个GetEnumerator()方法,该方法去可以返回一个实现了IEnumerator\n接口的对象。\n这个返回的IEnumerator对象既不是集合类对象,也不是集合的元无素类对象,它是一个独立的类对\n象。\n通过这个实现了IEnumerator接口对象A,可以遍历访问集合类对象中的每一个元素对象\n对象A访问MoveNext方法,方法为真,就可以访问Current方法,读取到集合的元素。"
+  },
+  {
+    "id": 1769048797612,
+    "question": "34.C#和C++的区别?",
+    "answer": "简单的说:C#与C++比较的话,最重要的特性就是C#是一种完全面面向对象的语言,而C++不是,另外C#是基于IL中间语言\n和NETFramework CLR的,在可移植性,可维护性和强壮性都比C++有很大的改进。C#的设计目标是用来开发快速稳定可扩展的应\n用程序,当然也可以通过Interop和Pinvoke完成一些底层操作\n具体对比:\n1.继承:C++支持多继承,C#类只能继承一个基类中的实现但可以实现多个接口。\n2.数组:声明C#数组和声明C++数组的语法不同。在C#中,\"1\"标记出现在数组类型的后面。\n3.数据类型:在C++中bool类可以与整型转换,但C#中bool类型和其他类型(特别是int)之间没有转换。long类型:在C#中,long9\n数据类型为64位,而在C++中为32位。\n4.struct类型:在C#中,类和结构在语义上不同。struct是值类型,而class是引用类型。\n5.switch语句:与C++中的switch语句不同,C#不支持从一个case标签贵穿到另一个case标签。\n6.delegate类型:委托与C++中的函数指针基本相似,但前者具有有类型安全,是安全的\n7.从派生类调用重写基类成员。base\n8.使用new修饰符显式隐藏继承成员。\n9.重写方法需要父类方法中用virtual声名,子类方法用override关键字。\n10.预处理器指令用于条件编译。C#中不使用头文件。C#预处理器指令\n11.异常处理:C#中引入了finally语句,这是C++没有的。\n12.C#运算符:C#支持其他运算符,如is和typeof。它还还引入了某些逻辑运算符的不同功能。\n13.static的使用,static方法只能由类名调用,改变static变量。\n14.在构造基类上替代C++初始化列表的方法。\n15.Main方法和C++及Java中的main函数的声明方式不同,Mair而不能用main\n16.方法参数:C#支持ref和out参数,这两个参数取代指看针通过引用传递参数。17.在C#中只能在unsafe不安全模式下才使用指针。\n18.在C#中以不同的方式执行重载运算符。\n19.字符串:C#字符串不同于C++字符串。\n20.foreach:C#從VB中引入了foreach关键字使得以循环访问数组目和集合。\n21.C#中没有全局方法和全局变量:方法和变量必须包含在类型型声明(如class或struct)中。\n22.C#中没有头文件和#include指令:using指令用于引用其他未完全限定类型名的命名空间中的类型。\n23.C#中的局部变量在初始化前不能使用。\n24.析构函数:在C#中,不能控制析构函数的调用时间,原因是析构函数由垃圾回收器自动调用。析构函数\n25.构造函数:与C++类似,如果在C#中没有提供类构造函数,则为您自动生成默认构造函数。该默认构造函数将所有字段初始化为\n它们的默认值。\n26.在C#中,方法参数不能有默认值。如果要获得同样的效果,需使用方法重载。"
+  },
+  {
+    "id": 1769049168949,
+    "question": "40.简述StringBuilder和String的区别?\n(字符串处理)",
+    "answer": "String是字符串常量。StringBuffer是字符串变量,线程安全。StringBuider是字符串变量,线程不安\nString类型是个不可变的对象,当每次对String进行改变时都需要生成一个新的String对象,然后将指\n针指向一个新的对象,如果在一个循环里面,不断的改变一个对象,就要不断的生成新的对象,所以\n效率很低,建议在不断更改String对象的地方不要使用String类型2,\nStringBuilder对象在做字符串连接操作时是在原来的字符串上进行修改,改善了性能。这一点我们平\n时使用中也许都知道,连接操作频繁的时候,使用StringBuilder对象。"
+  },
+  {
+    "id": 1769049475769,
+    "question": "44. Mathf.Round和Mathf.Clamp和Mathf.Lerp含义?",
+    "answer": "Mathf.Round:四舍五入\nMathf.Clamp:左右限值\nMathf.Lerp:插值"
+  },
+  {
+    "id": 1769049772886,
+    "question": "50.C#中四种访问修饰符是哪些?各有什么区别?",
+    "answer": "1.属性修饰符\n2.存取修饰符\n3.类修饰符\n4.成员修饰符\n属性修饰符:\nSerializable:按值将对象封送到远程服务器。\nSTATread:是单线程套间的意思,是一种线程模型区。\nMATAThread:是多线程套间的意思,也是一种线程模\n型。\n存取修饰符:\npublic:存取不受限制。\nprivate:只有包含该成员的类可以存取。\ninternal:只有当前工程可以存取。\nprotected:只有包含该成员的类以及派生类可以存\n取。\n类修饰符:\nabstract:抽象类。指示一个类只能作为其它类的基\n类。\nsealed:密封类。指示一个类不能被继承。理所当\n然,密封类不能同时又是抽象类,因为抽象总是希望\n被继承的。成员修饰符:\nabstract:指示该方法或属性没有实现。\nsealed:密封方法。可以防止在派生类中对该方法的\noverride(『载)。不是类的每个成员方法都可以作为\n密封方法密封方法,必须对基类的虚方法进行 载,\n提供具体的实现方法。所以,在方法的声明中,\nsealed修饰符总是和override修饰符同时使用。\ndelegate:委托。用来定义一个函数指针。C#中的事\n件驱动是基于delegate+event的。\nconst:指定该成员的值只读不允许修改。\nevent:声明一个事件。\nextern:指示方法在外部实现。\noverride: 写。对由基类继承成员的新实现。\nreadonly:指示一个域只能在声明时以及相同类的内\n部被赋值。\nstatic:指示一个成员属于类型本身,而不是属于特定\n的对象。即在定义后可不经实例化,就可使用。\nvirtual:指示一个方法或存取器的实现可以在继承类中\n被覆盖。\nnew:在派生类中隐藏指定的基类成员,从而实现\n写的功能。若要隐藏继承类的成员,请使用相同名称\n在派生类中声明该成员,并用new修饰符修饰它。"
+  },
+  {
+    "id": 1769050039518,
+    "question": "52.什么是装箱拆箱,怎样减少操作",
+    "answer": "C#装箱是将值类型转换为引用类型;\n拆箱是将引用类型转换为值类型。\n牵扯到装箱和拆箱操作比较多的就是在集合中,例如:ArrayList或者HashTable之类。"
+  }
+]

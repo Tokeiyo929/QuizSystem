@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简答题答题系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>简答题答题系统</h1>
+            <div class="nav-buttons">
+                <button id="configBtn" class="nav-btn">配置题目</button>
+                <button id="examBtn" class="nav-btn">开始答题</button>
+                <button id="resultBtn" class="nav-btn" style="display: none;">查看结果</button>
+            </div>
+        </header>
+
+        <!-- 配置界面 -->
+        <div id="configSection" class="section active">
+            <h2>题目配置</h2>
+            <div class="question-config">
+                <div class="input-group">
+                    <label for="questionInput">题目:</label>
+                    <textarea id="questionInput" placeholder="请输入题目内容"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="answerInput">标准答案:</label>
+                    <textarea id="answerInput" placeholder="请输入标准答案"></textarea>
+                </div>
+                <button id="addQuestionBtn" class="btn-primary">添加题目</button>
+            </div>
+            
+            <div class="import-export">
+                <h3>题目管理</h3>
+                <div class="data-controls">
+                    <button id="exportBtn" class="btn-secondary">导出题目</button>
+                    <label for="importFile" class="btn-secondary import-label">导入题目</label>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                    <button id="clearAllBtn" class="btn-danger">清空所有题目</button>
+                </div>
+            </div>
+
+            <div class="import-export">
+                <h3>答题记录管理</h3>
+                <div class="data-controls">
+                    <button id="exportHistoryBtn" class="btn-secondary">导出答题记录</button>
+                    <label for="importHistoryFile" class="btn-secondary import-label">导入答题记录</label>
+                    <input type="file" id="importHistoryFile" accept=".json" style="display: none;">
+                    <button id="clearHistoryBtn" class="btn-danger">清空答题记录</button>
+                </div>
+            </div>
+            
+            <div class="questions-list">
+                <h3>已配置题目 (<span id="questionCount">0</span>)</h3>
+                <div id="questionsList"></div>
+            </div>
+        </div>
+
+        <!-- 答题界面 -->
+        <div id="examSection" class="section">
+            <div id="examContent">
+                <div class="exam-header">
+                    <h2>答题进行中</h2>
+                    <div class="progress">
+                        <span id="currentQuestion">1</span> / <span id="totalQuestions">0</span>
+                    </div>
+                </div>
+                
+                <div class="question-container">
+                    <div class="question-text" id="currentQuestionText"></div>
+                    <textarea id="answerTextarea" placeholder="请在此输入你的答案..."></textarea>
+                    <button id="submitAnswerBtn" class="btn-primary">提交本题答案</button>
+                    
+                    <!-- 答案提交后显示的内容 -->
+                    <div id="answerFeedback" class="answer-feedback" style="display: none;">
+                        <div class="feedback-section">
+                            <h4>你的答案:</h4>
+                            <div id="submittedAnswer" class="user-answer"></div>
+                        </div>
+                        <div class="feedback-section">
+                            <h4>标准答案:</h4>
+                            <div id="standardAnswer" class="standard-answer"></div>
+                        </div>
+                        <div id="historySection" class="feedback-section" style="display: none;">
+                            <h4>历史答题记录:</h4>
+                            <div id="historyList" class="history-list"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="exam-controls">
+                    <button id="prevBtn" class="btn-secondary">上一题</button>
+                    <button id="nextBtn" class="btn-primary">下一题</button>
+                    <button id="submitBtn" class="btn-primary" style="display: none;">完成答题</button>
+                </div>
+            </div>
+            
+            <div id="noQuestionsMsg" style="display: none;">
+                <p>还没有配置题目，请先去配置界面添加题目。</p>
+            </div>
+        </div>
+
+        <!-- 结果界面 -->
+        <div id="resultSection" class="section">
+            <h2>答题结果</h2>
+            <div id="resultContent"></div>
+            <button id="restartBtn" class="btn-primary">重新答题</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
