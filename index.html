@@ -60,41 +60,50 @@
 
         <!-- 答题界面 -->
         <div id="examSection" class="section">
-            <div id="examContent">
-                <div class="exam-header">
-                    <h2>答题进行中</h2>
-                    <div class="progress">
-                        <span id="currentQuestion">1</span> / <span id="totalQuestions">0</span>
-                    </div>
-                </div>
+            <div id="examContent" class="exam-layout">
+                <!-- 左侧题目网格 -->
+                <aside class="question-grid-sidebar">
+                    <div class="grid-title">题目导航</div>
+                    <div id="questionGrid" class="question-grid"></div>
+                </aside>
                 
-                <div class="question-container">
-                    <div class="question-text" id="currentQuestionText"></div>
-                    <textarea id="answerTextarea" placeholder="请在此输入你的答案..."></textarea>
-                    <button id="submitAnswerBtn" class="btn-primary">提交本题答案</button>
+                <!-- 右侧答题区域 -->
+                <main class="exam-main">
+                    <div class="exam-header">
+                        <h2>答题进行中</h2>
+                        <div class="progress">
+                            <span id="currentQuestion">1</span> / <span id="totalQuestions">0</span>
+                        </div>
+                    </div>
                     
-                    <!-- 答案提交后显示的内容 -->
-                    <div id="answerFeedback" class="answer-feedback" style="display: none;">
-                        <div class="feedback-section">
-                            <h4>你的答案:</h4>
-                            <div id="submittedAnswer" class="user-answer"></div>
-                        </div>
-                        <div class="feedback-section">
-                            <h4>标准答案:</h4>
-                            <div id="standardAnswer" class="standard-answer"></div>
-                        </div>
-                        <div id="historySection" class="feedback-section" style="display: none;">
-                            <h4>历史答题记录:</h4>
-                            <div id="historyList" class="history-list"></div>
+                    <div class="question-container">
+                        <div class="question-text" id="currentQuestionText"></div>
+                        <textarea id="answerTextarea" placeholder="请在此输入你的答案..."></textarea>
+                        <button id="submitAnswerBtn" class="btn-primary">提交本题答案</button>
+                        
+                        <!-- 答案提交后显示的内容 -->
+                        <div id="answerFeedback" class="answer-feedback" style="display: none;">
+                            <div class="feedback-section">
+                                <h4>你的答案:</h4>
+                                <div id="submittedAnswer" class="user-answer"></div>
+                            </div>
+                            <div class="feedback-section">
+                                <h4>标准答案:</h4>
+                                <div id="standardAnswer" class="standard-answer"></div>
+                            </div>
+                            <div id="historySection" class="feedback-section" style="display: none;">
+                                <h4>历史答题记录:</h4>
+                                <div id="historyList" class="history-list"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="exam-controls">
-                    <button id="prevBtn" class="btn-secondary">上一题</button>
-                    <button id="nextBtn" class="btn-primary">下一题</button>
-                    <button id="submitBtn" class="btn-primary" style="display: none;">完成答题</button>
-                </div>
+                    
+                    <div class="exam-controls">
+                        <button id="prevBtn" class="btn-secondary">上一题</button>
+                        <button id="nextBtn" class="btn-primary">下一题</button>
+                        <button id="submitBtn" class="btn-primary" style="display: none;">完成答题</button>
+                    </div>
+                </main>
             </div>
             
             <div id="noQuestionsMsg" style="display: none;">

@@ -63,5 +63,45 @@
     "id": 1769050039518,
     "question": "52.什么是装箱拆箱,怎样减少操作",
     "answer": "C#装箱是将值类型转换为引用类型;\n拆箱是将引用类型转换为值类型。\n牵扯到装箱和拆箱操作比较多的就是在集合中,例如:ArrayList或者HashTable之类。"
+  },
+  {
+    "id": 1769130452793,
+    "question": "2.Unity3D中的碰撞器和触发器的区别?",
+    "answer": "答:碰撞器是触发器的载体,而触发器只是碰撞器身上的一个属性。\n当lsTrigger=false时,碰撞器根据物理引擎引发碰撞,产生碰撞的交效果,可以调用OnCollisionEnter/Stay/Exit函数;\n当lsTrigger=true时,碰撞器被物理引擎所忽略,没有碰撞效果,可以调用OnTriggerEnter/Stay/Exit函数。\n如果既要检测到物体的接触又不想让碰撞检测影响物体移动或要检测一个物件是否经过空间中的某个区域这时就可以用到触发器。"
+  },
+  {
+    "id": 1769131149345,
+    "question": "5.如何安全的在不同工程间安全地迁移asset数据?三种方法",
+    "answer": "1.将Assets和Library一起迁移\n2.导出包package\n3.用unity自带的assets Server功能"
+  },
+  {
+    "id": 1769131269551,
+    "question": "6.OnEnable,Awake,Start运行时的发生顺序?哪些可能在同一个对象周期中反复的发生?",
+    "answer": "答:Awake->OnEnable->Start\nOnEnable在同一周期中可以反复地发生!"
+  },
+  {
+    "id": 1769131413684,
+    "question": "9.Unity提供了几种光源,分别是什么?",
+    "answer": "平行光:Directional Light\n点光源:Point Light\n聚光灯:Spot Light\n区域光源:Area Light"
+  },
+  {
+    "id": 1769131700755,
+    "question": "16.如何优化内存?",
+    "answer": "1.压缩自带类库;\n2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉;\n3.释放AssetBundle占用的资源;\n4.降低模型的片面数,降低模型的骨骼数量,降低贴图的大小;\n5.使用光照贴图,使用多层次细节(LOD),使用着色器(Shader)使用预设(Prefab)\n6.代码中少产生临时变量"
+  },
+  {
+    "id": 1769131865162,
+    "question": "18.动态加载资源的方式?",
+    "answer": "instantiate:最简单的一种方式,以实例化的方式动态生成一个物体。\nAssetsbundle:即将资源打成asset bundle放在服务器或本地磁滋盘,然后使用WW模块get下来,然后从这个bundle中load某个\nobject,unity官方推荐也是绝大多数商业化项目使用的一种方式。\nResource.Load:可以直接load并返回某个类型的Object,前提是要把这个资源放在Resource命名的文件夹下,Unity不管有没有场景\n引用,都会将其全部打入到安装包中\n·AssetDatabase.loadasset:这种方式只在editor范围内有效,游戏运行时没有这个函数,它通常是在开发中调试用的。"
+  },
+  {
+    "id": 1769132022597,
+    "question": "19.使用Unity3d实现2d游戏,有几种方式?",
+    "answer": "1.使用本身的GUI、UGUI\n2.把摄像机的Projection(投影)值调为Orthographic(正交投影),不下考虑z轴;\n3.使用2d插件,如:2DToolKit、NGUI"
+  },
+  {
+    "id": 1769132470928,
+    "question": "20.在物体发生碰撞的整个过程中,有几个阶段,分别列出对应的函数三个阶段",
+    "answer": "OnCollisionEnter、OnCollisionStay、OnCollisionExit"
   }
 ]

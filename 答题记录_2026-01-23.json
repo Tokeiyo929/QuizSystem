@@ -76,5 +76,53 @@
       "answer": "装箱是将值类型变成引用类型\n拆箱是将引用类型变成值类型",
       "timestamp": "2026/1/22 10:47:51"
     }
+  ],
+  "1769130452793": [
+    {
+      "answer": "collider的isTrigger为false，需要调用OnColliderEnter/Exit/Stay函数\nisTrigger为True，需要调用OnTriggerEnter/Exit/Stay函数\n不想让碰撞体影响物体移动又希望检测物体通过某一区域可以用Trigger",
+      "timestamp": "2026/1/23 09:09:35"
+    }
+  ],
+  "1769131149345": [
+    {
+      "answer": "1.将asset文件夹和library文件夹一起导出\n2.导出成unity package\n3.使用asset server",
+      "timestamp": "2026/1/23 09:20:03"
+    }
+  ],
+  "1769131269551": [
+    {
+      "answer": "awake - onenable - start， onenable可以反复发生， awake和start只能调用一次",
+      "timestamp": "2026/1/23 09:22:26"
+    }
+  ],
+  "1769131413684": [
+    {
+      "answer": "direction light 平行光\nspot light 聚光灯\npoint light 点光源\narea light 面光 区域光",
+      "timestamp": "2026/1/23 09:24:18"
+    }
+  ],
+  "1769131700755": [
+    {
+      "answer": "1.减少模型面片数，减少骨骼数量，减小贴图大小\n2.减少代码中临时变量",
+      "timestamp": "2026/1/23 09:29:23"
+    }
+  ],
+  "1769131865162": [
+    {
+      "answer": "initialize 实例化\nResource.Load，需要资源放在Resource文件夹下\nAssetBundle，将资源打包成ab包，然后用www模块获取下来，\nAssetDataBase，编辑器状态下加载资源",
+      "timestamp": "2026/1/23 09:32:46"
+    }
+  ],
+  "1769132022597": [
+    {
+      "answer": "1.直接用UGUI\n2.相机正交投影\n3.外部插件NGUI，2D toolkit",
+      "timestamp": "2026/1/23 09:34:23"
+    }
+  ],
+  "1769132470928": [
+    {
+      "answer": "OnColliderEnter, OnColliderStay, OnColliderExit",
+      "timestamp": "2026/1/23 09:41:39"
+    }
   ]
 }

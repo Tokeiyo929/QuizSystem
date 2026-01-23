@@ -345,7 +345,7 @@ class QuizSystem {
             return;
         }
 
-        document.getElementById('examContent').style.display = 'block';
+        document.getElementById('examContent').style.display = 'flex';
         document.getElementById('noQuestionsMsg').style.display = 'none';
         
         this.currentQuestionIndex = 0;
@@ -353,8 +353,54 @@ class QuizSystem {
         this.questionSubmitted = new Array(this.questions.length).fill(false);
         
         this.showSection('exam');
+        this.renderQuestionGrid();
         this.displayCurrentQuestion();
         this.updateExamControls();
+    }
+
+    renderQuestionGrid() {
+        const grid = document.getElementById('questionGrid');
+        grid.innerHTML = '';
+        
+        this.questions.forEach((question, index) => {
+            const box = document.createElement('div');
+            box.className = 'question-box';
+            box.textContent = index + 1;
+            
+            if (this.questionSubmitted[index]) {
+                box.classList.add('submitted');
+            }
+            
+            if (index === this.currentQuestionIndex) {
+                box.classList.add('current');
+            }
+            
+            box.addEventListener('click', () => {
+                this.saveCurrentAnswer();
+                this.currentQuestionIndex = index;
+                this.displayCurrentQuestion();
+                this.updateExamControls();
+                this.updateQuestionGridUI();
+            });
+            
+            grid.appendChild(box);
+        });
+    }
+
+    updateQuestionGridUI() {
+        const boxes = document.querySelectorAll('.question-box');
+        boxes.forEach((box, index) => {
+            box.classList.remove('current');
+            box.classList.remove('submitted');
+            
+            if (this.questionSubmitted[index]) {
+                box.classList.add('submitted');
+            }
+            
+            if (index === this.currentQuestionIndex) {
+                box.classList.add('current');
+            }
+        });
     }
 
     displayCurrentQuestion() {
@@ -406,6 +452,7 @@ class QuizSystem {
         this.showAnswerFeedback();
         this.updateAnswerInterface(true);
         this.updateExamControls();
+        this.updateQuestionGridUI();
     }
 
     saveAnswerToHistory(questionIndex, answer) {
@@ -484,6 +531,7 @@ class QuizSystem {
             this.currentQuestionIndex--;
             this.displayCurrentQuestion();
             this.updateExamControls();
+            this.updateQuestionGridUI();
         }
     }
 
@@ -493,6 +541,7 @@ class QuizSystem {
             this.currentQuestionIndex++;
             this.displayCurrentQuestion();
             this.updateExamControls();
+            this.updateQuestionGridUI();
         }
     }
 
