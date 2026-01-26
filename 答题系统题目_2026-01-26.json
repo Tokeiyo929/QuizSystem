@@ -103,5 +103,75 @@
     "id": 1769132470928,
     "question": "20.在物体发生碰撞的整个过程中,有几个阶段,分别列出对应的函数三个阶段",
     "answer": "OnCollisionEnter、OnCollisionStay、OnCollisionExit"
+  },
+  {
+    "id": 1769389973211,
+    "question": "1. Image和Rawlmage的区别",
+    "answer": "·Imgae比Rawlmage更消耗性能\nImage只能使用Sprite属性的图片,但是Rawlmage什么样的都可以使用\nImage适合放一些有操作的图片,裁剪平铺旋转什么的,针又对Image Type属性\nRawlmage就放单独展示的图片就可以,性能会比lmage好很多"
+  },
+  {
+    "id": 1769390347339,
+    "question": "13.简述prefab的用处",
+    "answer": "在游戏运行时实例化,prefab相当于一个模板,对你已经有的的素材、脚本、参数做一个默认的配置,以便于以后的修改,同事prefab打包\n的内容简化了导出的操作,便于团队的交流。"
+  },
+  {
+    "id": 1769390606875,
+    "question": "23.物体自身旋转使用的函数?",
+    "answer": "Transform. Rotate()"
+  },
+  {
+    "id": 1769390822707,
+    "question": "25.Unity3d脚本从唤醒到销毁有着一套比较完整的生命周期,请列出系统自带的几个重要的方法。",
+    "answer": "答:Awake\n->Start->Update->FixedUpdate->LateUpdate >OnGU-->OnDisable-->OnDestroy\n主要执行顺序\n编辑器->初始化->物理系统->输入事件->游戏逻辑->场景渲染>GUI渲染->物体激活或禁用->销毁物体->应用结束\n主要函数介绍\nReset是在用户点击检视面板的Reset按钮或者首次添加该组件时被调周用。此函数只在编辑模式下被调用。Reset最常用于在检视面板中给一个\n最常用的默认值。\nAwake用于在游戏开始之前初始化变量或游戏状态。在脚本整个生命周期内它仅被调用一次.Awake在所有对象被初始比之后调用,所以你可以安\n全的与其他对象对话或用诸如GameObject.FindWithTag这样的函数搜索它们。每个游戏物体上的Awke以随机的顺序被调用。因此,你应该用\nAwake来设置脚本间的引用,并用Start来传递信息.Awake总是在Start之前被调用。它不能用来执行协同程序\nOnDisable不能用于协同程序。当对象变为不可用或非激活状态时此函数被调用。\nStart在behaviour的生命周期中只被调用一次。它和Awake的不同是Start只在脚本实例被启用时调用。你可以按需调整延迟初始化代码。Awake\n总是在Start之前执行。这允许你协调初始化顺序。\nFixedUpdate当MonoBehaviour启用时,其在每一帧被调用。处理Rigidbody时,需要用FixedUpdate代替Update。例如:给刚体加一个作用力时\n你必须应用作用力在FixedUpdate里的固定帧,而不是Update中的帧。(两者帧长不同)。\nOnTriggerEnter可以被用作协同程序,在函数中调用yield语句。当Collider(碰撞体)进入trigger(触发器)时调用OnTriggerEnter\nOnCollisionEnter相对于OnTriggerEnter,传递的是Collision类而不是Collider。Collision包含接触点,碰撞速度等细节。如果在函数中不使用碰\n撞信息,省略collisionlnfo参数以避免不必要的运算。注意如果碰撞体附加了一个非动力学刚体,只发送碰撞事件。可以被用作协同程序。\n当鼠标在GUIElement(GUI元素)或Collider(碰撞体)上点击时调用OnMouseDown\nUpdate是实现各种游戏行为最常用的函数。\nyield一个协同程序在执行过程中,可以在任意位置使用yield语句。yieId的返回值控制何时恢复协同程序向下执行。协同程序在对象自有帧行过\n程中堪称优秀。协同程序在性能上没有更多的开销。StartCoroutine函数是立刻返回的,但是yield可以延迟结果。直到协同程序执行完毕。\nLateUpdate是在所有Update函数调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时,跟随物体的相机可以在\nLateUpdate里实现。\n渲染和处理GUI事件时调用。这意味着你的OnGUI程序将会在每一帧被调用。要得到更多的GUI事件的信息查阅Event手册。如果Monobehaviour\n的enabled属性设为false,OnGUI()将不会被调用。\nOnApplicationQuit,当用户停止运行模式时在编辑器中调用。当web被关闭时在网络播放器中被调用。"
+  },
+  {
+    "id": 1769390914443,
+    "question": "26.物理更新一般放在哪个系统函数里?",
+    "answer": "FixedUpdate,每固定帧绘制时执行一次,和Update不同的是FixedUpdate是渲染帧执行,如果你的渲染效率低下的时候FixedUpdate调\n用次数就会跟着下降。\nFixedUpdate比较适用于物理引擎的计算,因为是跟每帧渲染有关。Update就比较适合做控制。"
+  },
+  {
+    "id": 1769390989603,
+    "question": "28.如何销毁一个UnityEngine.Object及其子类?",
+    "answer": "使用Destroy()方法;"
+  },
+  {
+    "id": 1769391074051,
+    "question": "30.请描述为什么Unity3d中会发生在组件上出现数据丢失的情况",
+    "answer": "一般是组件上绑定的物体对象被删除了"
+  },
+  {
+    "id": 1769391459467,
+    "question": "35.MipMap是什么,作用?",
+    "answer": "MipMapping:在三维计算机图形的贴图渲染中有常用的技术,为加快渲染进度和减少图像锯齿,贴图被处理成由一系列被预先计算和优\n化过的图片组成的文件,这样的贴图被称为MipMap。"
+  },
+  {
+    "id": 1769391715875,
+    "question": "36.请描述Interface与抽象类之间的不同",
+    "answer": "语法不同处:\n1.抽象类中可以有字段,接口没有。\n2.抽象类中可以有实现成员,接口只能包含抽象成员。\n3.抽象类中所有成员修饰符都可以使用,接口中所有的成员都是对外的,所以不需要修饰符修饰。\n用法不同处:\n1.抽象类是概念的抽象,接口关注于行为。\n2.抽象类的子类与父类的关系是泛化关系,耦合度较高,而实现类和接口之间是实现的关系,耦合度比泛化低\n3.一个类只能继承一个类,但是可以实现多个接口。"
+  },
+  {
+    "id": 1769391971467,
+    "question": "40.如何让已经存在的GameObject在LoadLevel后不被卸载掉?",
+    "answer": "DontDestroyOnLoad(transform.gameObject);"
+  },
+  {
+    "id": 1769392102147,
+    "question": "42.向量的点乘、叉乘以及归一化的意义?",
+    "answer": "叉乘几何意义:得到一个与这两个向量都垂直的向量,这个向量的的模是以两个向量为边的平行四边形的面积\n点乘几何意义:可以用来表征或计算两个向量之间的夹角,以及在b向量在a向量方向上的投影\n1.点乘描述了两个向量的相似程度,结果越大两向量越相似,还可表示投影\n2.叉乘得到的向量垂直于原来的两个向量\n3.标准化向量:用在只关系方向,不关心大小的时候"
+  },
+  {
+    "id": 1769392217491,
+    "question": "44.当一个细小的高速物体撞向另一个较大的物体时,会出现什么情况?如何避免?",
+    "answer": "穿透(碰撞检测失败)\n(例如CS射击游戏,可以使用开枪时发射射线,射线碰撞到则掉血击中)"
+  },
+  {
+    "id": 1769392418268,
+    "question": "48.什么叫动态合批?跟静态合批有什么区别?",
+    "answer": "如果动态物体共用着相同的材质,那么Unity会自动对这些物体过进行批处理\n动态批处理操作是自动完成的,并不需要你进行额外的操作。\n区别:动态批处理一切都是自动的,不需要做任何操作,而且物体是可以移动的,但是限制很多。静态批处理:自由度很高,限制很少,\n缺点可能会占用更多的内存,而且经过静态批处理后的所有物体都不可以再移动了。"
+  },
+  {
+    "id": 1769392643692,
+    "question": "50.什么是LightMap?",
+    "answer": "LightMap:就是指在三维软件里实现打好光,然后渲染把场景各表面的光照输出到贴图上,最后又通过引擎贴到场景上,这样就更物体有\n了光照的感觉。"
   }
 ]

@@ -99,6 +99,10 @@
     {
       "answer": "direction light 平行光\nspot light 聚光灯\npoint light 点光源\narea light 面光 区域光",
       "timestamp": "2026/1/23 09:24:18"
+    },
+    {
+      "answer": "point Light 点光\nDirection Light 平行光\nspotLight射灯\narealight面光",
+      "timestamp": "2026/1/26 09:55:46"
     }
   ],
   "1769131700755": [
@@ -123,6 +127,90 @@
     {
       "answer": "OnColliderEnter, OnColliderStay, OnColliderExit",
       "timestamp": "2026/1/23 09:41:39"
+    }
+  ],
+  "1769389973211": [
+    {
+      "answer": "image只能放sprite图,image比rawImage更消耗性能",
+      "timestamp": "2026/1/26 09:13:27"
+    }
+  ],
+  "1769390347339": [
+    {
+      "answer": "用于在游戏运行时进行实例化，预制体里面视为一个模板，里面存有transform和组件信息",
+      "timestamp": "2026/1/26 09:19:56"
+    }
+  ],
+  "1769390606875": [
+    {
+      "answer": "Transform.Rotate()",
+      "timestamp": "2026/1/26 09:23:36"
+    }
+  ],
+  "1769390822707": [
+    {
+      "answer": "awake->start->update->LateUpdate->ondestory",
+      "timestamp": "2026/1/26 09:27:38"
+    }
+  ],
+  "1769390914443": [
+    {
+      "answer": "fixedUpdate,固定帧，update用于控制，fixedupdate用于物理",
+      "timestamp": "2026/1/26 09:29:12"
+    }
+  ],
+  "1769390989603": [
+    {
+      "answer": "使用destroy方法",
+      "timestamp": "2026/1/26 09:30:10"
+    }
+  ],
+  "1769391074051": [
+    {
+      "answer": "一般是因为组件上绑定的对象被删除了",
+      "timestamp": "2026/1/26 09:31:34"
+    }
+  ],
+  "1769391459467": [
+    {
+      "answer": "对图片进行预先处理，一般是减半比如400x400->200x200->100x100->50x50,预先生成不同分辨率下的图片，避免邻近过滤生成的摩尔纹",
+      "timestamp": "2026/1/26 09:39:43"
+    }
+  ],
+  "1769391715875": [
+    {
+      "answer": "接口里所有方法都是public的，所以不需要修饰符\n抽象类里面可以有修饰符，\n一个类只能继承一个类，但是可以实现多个接口",
+      "timestamp": "2026/1/26 09:42:51"
+    }
+  ],
+  "1769391971467": [
+    {
+      "answer": "DontDestroyOnLoad(transform.gameObject)",
+      "timestamp": "2026/1/26 09:46:53"
+    }
+  ],
+  "1769392102147": [
+    {
+      "answer": "向量点乘是反应两个向量之间的夹角，向量叉乘是计算出一个与两个向量都垂直的向量",
+      "timestamp": "2026/1/26 09:49:12"
+    }
+  ],
+  "1769392217491": [
+    {
+      "answer": "碰撞检测失败",
+      "timestamp": "2026/1/26 09:50:26"
+    }
+  ],
+  "1769392418268": [
+    {
+      "answer": "动态合批是unity自动完成的，unity会对使用相同材质的物体进行动态合批，合批后的物体可以移动\n静态合批是手动操作的，静态合批后的物体不可移动",
+      "timestamp": "2026/1/26 09:54:42"
+    }
+  ],
+  "1769392643692": [
+    {
+      "answer": "lightmap就是在软件里面打好光，然后将光照信息输出到贴图上，再由引擎贴到场景里面",
+      "timestamp": "2026/1/26 09:58:06"
     }
   ]
 }
