@@ -186,8 +186,6 @@ class QuizSystem {
         link.href = URL.createObjectURL(dataBlob);
         link.download = `答题系统题目_${new Date().toISOString().slice(0, 10)}.json`;
         link.click();
-        
-        alert(`成功导出 ${this.questions.length} 道题目！`);
     }
 
     importQuestions(event) {
@@ -274,8 +272,6 @@ class QuizSystem {
         link.href = URL.createObjectURL(dataBlob);
         link.download = `答题记录_${new Date().toISOString().slice(0, 10)}.json`;
         link.click();
-        
-        alert(`成功导出答题记录！`);
     }
 
     importHistory(event) {

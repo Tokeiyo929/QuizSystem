@@ -187,6 +187,10 @@
     {
       "answer": "DontDestroyOnLoad(transform.gameObject)",
       "timestamp": "2026/1/26 09:46:53"
+    },
+    {
+      "answer": "DontDestoryOnLoad(transform.gameOject)",
+      "timestamp": "2026/1/27 09:27:32"
     }
   ],
   "1769392102147": [
@@ -211,6 +215,58 @@
     {
       "answer": "lightmap就是在软件里面打好光，然后将光照信息输出到贴图上，再由引擎贴到场景里面",
       "timestamp": "2026/1/26 09:58:06"
+    }
+  ],
+  "1769476925884": [
+    {
+      "answer": "在game视图的右上角的stats界面，看batches数量，draw call就是draw call batching",
+      "timestamp": "2026/1/27 09:22:51"
+    }
+  ],
+  "1769477177027": [
+    {
+      "answer": "计算物体的旋转角度",
+      "timestamp": "2026/1/27 09:26:29"
+    },
+    {
+      "answer": "四元数能进行增量旋转，左乘就可以，四元数构成一个向量空间，欧拉角是三个独立的标量，四元数可以避免万向锁，即y=+-90时，y和x是围绕同一个垂直轴旋转",
+      "timestamp": "2026/1/27 09:45:13"
+    }
+  ],
+  "1769477323667": [
+    {
+      "answer": "a物体的渲染队列在b物体的渲染队列前面",
+      "timestamp": "2026/1/27 09:29:10"
+    }
+  ],
+  "1769477419307": [
+    {
+      "answer": "texture作为材质贴图，sprite作为ui精灵图",
+      "timestamp": "2026/1/27 09:30:47"
+    }
+  ],
+  "1769477525875": [
+    {
+      "answer": "drawcall就是引擎将数据传给gpu就是一次drawcall，降低drawcall：dynamic batch，通过unity自带的，将同一材质的物体进行合批，static batch，手动勾选物体为静态，静态物体不能移动",
+      "timestamp": "2026/1/27 09:33:35"
+    }
+  ],
+  "1769478387411": [
+    {
+      "answer": "Laymask mask = 1 << 7(开启第七层)\nLaymask mask = 0 << 7(关闭第七层)",
+      "timestamp": "2026/1/27 09:47:35"
+    }
+  ],
+  "1769478643242": [
+    {
+      "answer": "overlay worldspace screenspace\noverlay ui永远在3d物体上面\nworldspace ui作为3d空间中的一个物体\n缩放模式\nscale with resolution 根据分辨率来缩放\nconstant size 固定大小",
+      "timestamp": "2026/1/27 09:52:27"
+    }
+  ],
+  "1769479129602": [
+    {
+      "answer": "fsm 有限状态机包含 onenter onexit，还有状态间切换的函数",
+      "timestamp": "2026/1/27 09:59:27"
     }
   ]
 }

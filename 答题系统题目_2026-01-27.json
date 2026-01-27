@@ -173,5 +173,45 @@
     "id": 1769392643692,
     "question": "50.什么是LightMap?",
     "answer": "LightMap:就是指在三维软件里实现打好光,然后渲染把场景各表面的光照输出到贴图上,最后又通过引擎贴到场景上,这样就更物体有\n了光照的感觉。"
+  },
+  {
+    "id": 1769476925884,
+    "question": "57.如何在Unity3D中查看场景的面数,顶点数和DrawCall数?如何降低DrawCall数?",
+    "answer": "在Game视图右上角点击Stats。降低Draw Call的技术是Draw CallBatching"
+  },
+  {
+    "id": 1769477177027,
+    "question": "60.四元数有什么作用?",
+    "answer": "对旋转角度进行计算时用到四元数"
+  },
+  {
+    "id": 1769477323667,
+    "question": "64.有A和B两组物体,有什么办法能够保证A组物体永远比B组物体先渲染?",
+    "answer": "把A组物体的渲染对列大于B物体的渲染队列"
+  },
+  {
+    "id": 1769477419307,
+    "question": "65.将图片的TextureType选项分别选为Texture和Sprite有什么区别",
+    "answer": "Sprite作为Ul精灵使用,Texture作用模型贴图使用。"
+  },
+  {
+    "id": 1769477525875,
+    "question": "67.什么是DrawCall?DrawCall高了又什么影响?如何降低DrawCall?",
+    "answer": "Unity中,每次引擎准备数据并通知GPU的过程称为一次Draw Call。DrawCall越高对显卡的消耗就越\n大。降低DrawCall的方法:\nDynamic Batching\nStatic Batching\n高级特性Shader降级为统一的低级特性的Shader。"
+  },
+  {
+    "id": 1769478387411,
+    "question": "72.层剔除",
+    "answer": "用layermask,通过位运算的方式去设置\n在代码中使用时如何开启某个Layers?\nLayerMaskmask=1<<你需要开启的Layers层。\nLayerMaskmask=0<<你需要关闭的Layers层。\nLayerMask mask = 1 << 2; 表示开启Layer2。\n\nLayerMask mask = 0 << 5;表示关闭Layer5。\n\nLayerMask mask = 1<<2|1<<8;表示开启Layer2和Layer8。\n\nLayerMask mask = 0<<3|0<<7;表示关闭Layer3和Layer7。"
+  },
+  {
+    "id": 1769478643242,
+    "question": "74.画布的三种模式.缩放模式",
+    "answer": "屏幕空间-覆盖模式(ScreenSpace-Overlay),Canvas创建出来后,默认就是该模式,该模式和\n摄像机无关,即使场景内没有摄像机,UI游戏物体照样渲染\n。屏幕空间:电脑或者手机显示屏的2D空间,只有x轴和y轴\n。覆盖模式:Ul元素永远在3D元素的前面\n屏幕空间-摄像机模式(ScreenSpace-Camera),设置成该模式后需要指定一个摄像机游戏物\n体,指定后UGUI就会自动出现在该摄像机的\"投射范围\"内,和NGUI的默认UIRoot效果一致,如\n果隐藏掉摄像机,UGUI当然就无法渲染\n世界空间模式(WorldSpace),设置成该模式后UGUI就相当于是场景内的一个普通的\"Cube游戏\n模型\",可以在场景内任意的移动UGUI元素的位置,通常用于怪物血条显示和VR开发\n缩放模式:\nProperty:\nFunction:\nCanvas中Ul元素的缩放模\nUI Scale Mode\n式\n使UI保持自己的尺寸,与\nConstant Pixel Size\n屏幕尺寸无关。\nScale With Screen Size\n屏幕尺寸越大,UI越大\n使UI元素保持相同的物理\n大小,与屏幕尺寸无关。\nConstant Physical Size\nConstant Pixel Size、Constant Physical Size实际上他们本质是一样的,只不过\nConstant Pixel Size通过逻辑像素大小调节来维持缩放,而Constant Physical Size\n通过物理大小调节来维持缩放。"
+  },
+  {
+    "id": 1769479129602,
+    "question": "75.FSM有限状态机",
+    "answer": "FSM是一种数据结构,它由以下几个部分组成:\n1.内在的所有状态(必须是有限个)\n2.输入条件\n3.状态之间起到连接性作用的转换函数\n为什么要用FSM?\n因为它编程快速简单,易于调试,性能高,与人类思维相似从而便于梳理,灵活且容易修改\nFSM的描述性定义:\n一个有限状态机是一个设备,或是一个模型,具有有限数量的状态。它可以在任何给定时间根据输入\n进行操作,使得系统从一个状态转换到另一个状态,或者是使一个输出或者一种行为的发生,一个有\n限状态机在任何瞬间只能处于一种状态。\nState状态基类,定义了基本的Enter,Update,Exit三种状态行为,通常在这三种状态行为的方法里\n会写一些逻辑。每个State都会有StatelD(状态id,可以是枚举等),FSMControl(控制该状态的状\n态控制器的引用),Check方法(用来进行状态判断,并返回StatelD,通过FSMControl驱动)\nFSMControl,包含了一下FSMMachine,封装层。\nFSMMachine,驱动它的State列表,Update方法调用当前State的Chedk方法来获得StatelD,当\ncurrentState的Check方法返回的StatelD和当前StatelD不同,则切换状态。\n这是一个简单的FSM状态机系统,根据需要自己写个Control继承FSMCControl来驱动状态。因为\nCheck是State的职责,所以每一个不同对象的行为如Human的ledle和Dog的ldel区分肯定也不同。因此\n需要分别去写HumanldleState和DogldleState。如果还有Cat, PFish,可想而知代码量会有多么庞大。\n因此我将FSMControl抽象为一个公共基类,把State的Check具本实现作为FSMControl的Virtual方\n法。这样在ldleState里的Check方法就不用写具体的状态切换判断逻辑,而是调用它FSMControl子类\n(自己写的继承自FSMControl的Control类)的重写方法\n这样每次添加的新对象只要有ldle这个状态,就可以用一个公用的Stateldle,状态切换的逻辑差异放\n在Control层"
   }
 ]
