@@ -213,5 +213,25 @@
     "id": 1769479129602,
     "question": "75.FSM有限状态机",
     "answer": "FSM是一种数据结构,它由以下几个部分组成:\n1.内在的所有状态(必须是有限个)\n2.输入条件\n3.状态之间起到连接性作用的转换函数\n为什么要用FSM?\n因为它编程快速简单,易于调试,性能高,与人类思维相似从而便于梳理,灵活且容易修改\nFSM的描述性定义:\n一个有限状态机是一个设备,或是一个模型,具有有限数量的状态。它可以在任何给定时间根据输入\n进行操作,使得系统从一个状态转换到另一个状态,或者是使一个输出或者一种行为的发生,一个有\n限状态机在任何瞬间只能处于一种状态。\nState状态基类,定义了基本的Enter,Update,Exit三种状态行为,通常在这三种状态行为的方法里\n会写一些逻辑。每个State都会有StatelD(状态id,可以是枚举等),FSMControl(控制该状态的状\n态控制器的引用),Check方法(用来进行状态判断,并返回StatelD,通过FSMControl驱动)\nFSMControl,包含了一下FSMMachine,封装层。\nFSMMachine,驱动它的State列表,Update方法调用当前State的Chedk方法来获得StatelD,当\ncurrentState的Check方法返回的StatelD和当前StatelD不同,则切换状态。\n这是一个简单的FSM状态机系统,根据需要自己写个Control继承FSMCControl来驱动状态。因为\nCheck是State的职责,所以每一个不同对象的行为如Human的ledle和Dog的ldel区分肯定也不同。因此\n需要分别去写HumanldleState和DogldleState。如果还有Cat, PFish,可想而知代码量会有多么庞大。\n因此我将FSMControl抽象为一个公共基类,把State的Check具本实现作为FSMControl的Virtual方\n法。这样在ldleState里的Check方法就不用写具体的状态切换判断逻辑,而是调用它FSMControl子类\n(自己写的继承自FSMControl的Control类)的重写方法\n这样每次添加的新对象只要有ldle这个状态,就可以用一个公用的Stateldle,状态切换的逻辑差异放\n在Control层"
+  },
+  {
+    "id": 1769563013931,
+    "question": "76.使用过哪些Unity插件",
+    "answer": "因人而异,可以去简单了解一下要说的插件,没用过也可以,至少你知道这个插件了!\n插件名\n作用\nshader graph\n制作shader光影效果\ncinemachine+timeline+postprocessingstack\n制作过场动画\nnodecanvas\n制作怪物ai\neasytouch\n手游触摸控制\nDo Tween\n动画插件\nFungus\n对话插件\n3D WebView\n浏览器插件\nVectrosity\n划线插件\nAVPro Video\n视频播放插件"
+  },
+  {
+    "id": 1769563523686,
+    "question": "1.unity常用资源路径有哪些",
+    "answer": "//获取的目录路径最后不包含  /\n//获得的文件路径开头包含 /\nApplication.dataPath; //Asset文件夹的绝对路径\n//只读\nApplication.streamingAssetsPath;  //StreamingAssets文件夹的绝对路径（要先判断是否存在这个文件夹路径）\nApplication.persistentData ; //可读写\n\n//资源数据库 (AssetDatabase) 是允许您访问工程中的资源的 API\nAssetDatabase.GetAllAssetPaths; //获取所有的资源文件（不包含meta文件）\nAssetDatabase.GetAssetPath(object) //获取object对象的相对路径\nAssetDatabase.Refresh(); //刷新\nAssetDatabase.GetDependencies(string); //获取依赖项文件\n\n\nDirectory.Delete(p, true); //删除P路径目录\nDirectory.Exists(p);  //是否存在P路径目录\nDirectory.CreateDirectory(p); //创建P路径目录\n\nAssetDatabase //类库，对Asset文件夹下的文件进行操作，获取相对路径，获取所有文件，获取相对依赖项\nDirectory //类库，相关文件夹路径目录进行操作，是否存在，创建目录，删除等操作"
+  },
+  {
+    "id": 1769563692091,
+    "question": "3.unity提供了一个用于保存读取数据的类,(playerPrefs),请列出保存读取整形数据的函数",
+    "answer": "PlayerPrefs类是一个本地持久化保存与读取数据的类\nPlayerPrefs类支持3中数据类型的保存和读取,浮点型,整形,和字符串型。\n分别对应的函数为:\nSetlnt();保存整型数据;Getlnt();读取整形数据;\nSetFloat();保存浮点型数据;GetFlost();读取浮点型数据;\nSetString(),保存字符串型数据;GetString(),读取字符串型数据;"
+  },
+  {
+    "id": 1769565536849,
+    "question": "6.AssetBundle加载",
+    "answer": "1. LoadFromMemory(LoadFromMemoryAsync)\n2. LoadFrom File (LoadFrom FileAsync)\n3. UnityWebRequest\n4. LoadAssetsByWWWW(LoadFromCacheOrDownload)"
   }
 ]

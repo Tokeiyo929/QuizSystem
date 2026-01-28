@@ -115,6 +115,10 @@
     {
       "answer": "initialize 实例化\nResource.Load，需要资源放在Resource文件夹下\nAssetBundle，将资源打包成ab包，然后用www模块获取下来，\nAssetDataBase，编辑器状态下加载资源",
       "timestamp": "2026/1/23 09:32:46"
+    },
+    {
+      "answer": "instantiate 实例化预制体\nResources.Load从Resources文件夹中加载",
+      "timestamp": "2026/1/28 09:31:06"
     }
   ],
   "1769132022597": [
@@ -127,6 +131,10 @@
     {
       "answer": "OnColliderEnter, OnColliderStay, OnColliderExit",
       "timestamp": "2026/1/23 09:41:39"
+    },
+    {
+      "answer": "OnCollisionEnter,OnCollisionStay,OnCollisionExit",
+      "timestamp": "2026/1/28 09:20:28"
     }
   ],
   "1769389973211": [
@@ -267,6 +275,30 @@
     {
       "answer": "fsm 有限状态机包含 onenter onexit，还有状态间切换的函数",
       "timestamp": "2026/1/27 09:59:27"
+    }
+  ],
+  "1769563013931": [
+    {
+      "answer": "avpro 播放视频\ncinemachine + timeline 过场动画\ndotween 动画ui",
+      "timestamp": "2026/1/28 09:17:40"
+    }
+  ],
+  "1769563523686": [
+    {
+      "answer": "Application.dataPath Asset文件路径\nApplication.PersitantPath 持久化路径\nApplication.streamingAssetPath streamingAsset文件夹路径",
+      "timestamp": "2026/1/28 09:26:44"
+    }
+  ],
+  "1769563692091": [
+    {
+      "answer": "playerPrefs支持三种数据类型的持久化存储，int，float，string\nSetInt GetInt SetString GetString SetFloat GetFloat",
+      "timestamp": "2026/1/28 09:29:07"
+    }
+  ],
+  "1769565536849": [
+    {
+      "answer": "LoadFromMemory 从缓存中加载\nLoadFromFile 从文件中加载，也就是Default包\nLoadFromUnityWWW WWW模块从网络中下载\nLoadFromMemoryOrWWW 从网络中下载或者从缓存中加载",
+      "timestamp": "2026/1/28 10:00:33"
     }
   ]
 }
