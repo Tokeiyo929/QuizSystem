@@ -119,6 +119,10 @@
     {
       "answer": "instantiate 实例化预制体\nResources.Load从Resources文件夹中加载",
       "timestamp": "2026/1/28 09:31:06"
+    },
+    {
+      "answer": "AssetDatabase加载资源，只在编辑器状态下有用，打包后不可用，适用于开发\nInstantiate预制体实例化prefab\nAddressableAsset aa包\nAssetBundle ab包",
+      "timestamp": "2026/1/29 09:22:21"
     }
   ],
   "1769132022597": [
@@ -299,6 +303,30 @@
     {
       "answer": "LoadFromMemory 从缓存中加载\nLoadFromFile 从文件中加载，也就是Default包\nLoadFromUnityWWW WWW模块从网络中下载\nLoadFromMemoryOrWWW 从网络中下载或者从缓存中加载",
       "timestamp": "2026/1/28 10:00:33"
+    }
+  ],
+  "1769649328698": [
+    {
+      "answer": "yield 语句是根据返回的时间后继续向下执行协程",
+      "timestamp": "2026/1/29 09:16:04"
+    }
+  ],
+  "1769995115834": [
+    {
+      "answer": "Array 固定大小，类型统一，通过索引访问\nArrayList 动态大小\nList 动态大小\nDictionary<TKey, TValue> 用键值对存储，键唯一\nHashSet 元素唯一\nStack 先进后出，用它处理撤回和时间回溯的操作\nQueue 先进先出",
+      "timestamp": "2026/2/2 09:24:57"
+    }
+  ],
+  "1769996062043": [
+    {
+      "answer": "重载是一样的函数名，但是返回值，参数类型，参数数量，参数顺序不一样\n重写是override，重写基类里的abstract方法和virtual方法，",
+      "timestamp": "2026/2/2 09:35:45"
+    }
+  ],
+  "1769997654667": [
+    {
+      "answer": "强类型语言在定义变量的时候就要确定变量类型，c#是一种强类型语言",
+      "timestamp": "2026/2/2 10:01:28"
     }
   ]
 }

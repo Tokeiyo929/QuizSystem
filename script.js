@@ -152,7 +152,7 @@ class QuizSystem {
             <div class="question-item">
                 <button class="delete-btn" onclick="quizSystem.deleteQuestion(${q.id})">删除</button>
                 <h4>第${index + 1}题: ${q.question}</h4>
-                <div class="answer">标准答案: ${q.answer}</div>
+                <div class="answer">标准答案: ${this.formatTextWithLineBreaks(q.answer)}</div>
             </div>
         `).join('');
     }
@@ -474,9 +474,9 @@ class QuizSystem {
         const questionId = currentQuestion.id.toString();
         const history = this.answerHistory[questionId] || [];
         
-        // 显示用户答案和标准答案
-        document.getElementById('submittedAnswer').textContent = userAnswer;
-        document.getElementById('standardAnswer').textContent = currentQuestion.answer;
+        // 显示用户答案和标准答案，处理换行符
+        document.getElementById('submittedAnswer').innerHTML = this.formatTextWithLineBreaks(userAnswer);
+        document.getElementById('standardAnswer').innerHTML = this.formatTextWithLineBreaks(currentQuestion.answer);
         
         // 显示历史记录
         const historySection = document.getElementById('historySection');
@@ -487,12 +487,18 @@ class QuizSystem {
             historyList.innerHTML = history.map(record => `
                 <div class="history-item">
                     <div class="history-time">${record.timestamp}</div>
-                    <div class="history-answer">${record.answer}</div>
+                    <div class="history-answer">${this.formatTextWithLineBreaks(record.answer)}</div>
                 </div>
             `).join('');
         } else {
             historySection.style.display = 'none';
         }
+    }
+
+    // 新增方法：处理文本中的换行符
+    formatTextWithLineBreaks(text) {
+        if (!text) return '';
+        return text.replace(/\n/g, '<br>');
     }
 
     updateExamControls() {
@@ -583,7 +589,7 @@ class QuizSystem {
                             ${history.map((record, i) => `
                                 <div class="history-item">
                                     <div class="history-time">${record.timestamp}</div>
-                                    <div class="history-answer">${record.answer}</div>
+                                    <div class="history-answer">${this.formatTextWithLineBreaks(record.answer)}</div>
                                 </div>
                             `).join('')}
                         </div>
@@ -596,11 +602,11 @@ class QuizSystem {
                     <h4>第${index + 1}题: ${question.question}</h4>
                     <div>
                         <strong>本次答案:</strong>
-                        <div class="user-answer">${currentAnswer}</div>
+                        <div class="user-answer">${this.formatTextWithLineBreaks(currentAnswer)}</div>
                     </div>
                     <div>
                         <strong>标准答案:</strong>
-                        <div class="standard-answer">${question.answer}</div>
+                        <div class="standard-answer">${this.formatTextWithLineBreaks(question.answer)}</div>
                     </div>
                     ${historyHTML}
                 </div>

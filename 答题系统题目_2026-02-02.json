@@ -233,5 +233,25 @@
     "id": 1769565536849,
     "question": "6.AssetBundle加载",
     "answer": "1. LoadFromMemory(LoadFromMemoryAsync)\n2. LoadFrom File (LoadFrom FileAsync)\n3. UnityWebRequest\n4. LoadAssetsByWWWW(LoadFromCacheOrDownload)"
+  },
+  {
+    "id": 1769649328698,
+    "question": "4.协同程序的执行代码是什么?有何用处,有何缺点?",
+    "answer": "官方案例)\nfunction Start() {\n// - After 0 seconds, prints \"Starting 0.0\"\n// - After 0 seconds, prints \"Before WaitAndPrint\nFinishes 0.0\"\n// - After 2 seconds, prints \"WaitAndPrint 2.0\" // 先打印\"Starting 0.0\"和\"Before WaitAndPrint\nFinishes 0.0\"两句,2秒后打印\"WaitAndPrint 2.0\" print (\"Starting \" + Time.time );\n// Start function WaitAndPrint as a coroutine. And continue execution while it is running\n// this is the same as WaintAndPrint(2.0) as the compiler does it for you automatically\n// 协同程序WaitAndPrint在Start函数内执行,可以视 同于它与Start函数同步执行.\nStartCoroutine(WaitAndPrint(2.0));\nprint (\"Before WaitAndPrint Finishes \" + Time.time );\n}\nfunction WaitAndPrint (waitTime : float) {\n// suspend execution for waitTime seconds // 暂停执行waitTime秒\nyield WaitForSeconds (waitTime);\nprint (\"WaitAndPrint \"+ Time.time );\n}\n作用:一个协同程序在执行过程中,可以在任意位置使\n用yield语句。yield的返回值控制何时恢复协同程序向下执行。协同程序在对象自有帧执行过程中堪称\n优秀。协同程序在性能上没有更多的开销。缺点:协同程序并非真线程,可能会发生堵塞。"
+  },
+  {
+    "id": 1769995115834,
+    "question": "C#中的主要集合类型及其特点如下：",
+    "answer": "数组（Array）：固定大小，连续内存存储，元素类型统一，通过索引可快速访问元素。\n动态数组（ArrayList）：动态大小，可存储任意类型对象，但存取可能涉及装箱拆箱，有性能损耗。\n列表（List）：动态大小，类型安全，避免了装箱拆箱，可通过索引快速访问元素。\n字典（Dictionary<TKey, TValue>）：以键值对形式存储，键唯一，可通过键快速查找值，元素无序。\n集合（HashSet）：元素唯一，查找、插入和删除操作快，元素无序。\n队列（Queue）：先进先出，按元素添加顺序依次处理。\n栈（Stack）：后进先出，适合实现回溯、撤销等功能。"
+  },
+  {
+    "id": 1769996062043,
+    "question": "在C#中，多态性可以通过重载（Overload）和重写（Override）来实现，但它们之间有着显著的不同：",
+    "answer": "重载是指在同一个类中，允许多个方法具有相同的名称，但参数列表不同（可以是参数的类型、数量或者顺序）。\n重写是指在派生类中重新定义基类中的虚方法。通过虚拟方法（virtual）和重写（override）机制实现。"
+  },
+  {
+    "id": 1769997654667,
+    "question": "什么是强类型、弱类型语言?哪种更好?",
+    "answer": "强类型语言\n强类型语言是一种强制类型定义的语言,即一旦某一个变量被定义类型,如果不经强制转换,那么它永远就是\n该数据类型。\n在强类型语言中,变量的数据类型是严格定义的,编译择器或解释器会强制确保变量只能存储与其数据类型相\n匹配的值。\n类型转换通常需要显式地进行,以确保数据的一致性和安全性E。\n强类型语言通常提供更多的类型安全性,因为编译器会捕获类类型不匹配的错误。\n代表语言:C#、Java、Python、Go等。\n弱类型语言\n弱类型语言是一种弱类型定义的语言,某一个变量被定义类型,该变量可以根据环境变化自动进行转换,不需\n要经过现行强制转换。\n·在弱类型语言中,变量的数据类型不是严格定义的,变量可以在不同的上下文中自动进行类型转换。\n·类型转换通常是隐式的,由编译器或解释器自动处理。这可能导致潜在的类型错误不容易被发现。\n·弱类型语言可能更灵活,但也更容易引入错误,因为不同数据类型之间的操作可能不受限制。\n代表语言:JavaScript、PHP、Perl、Visual Basic等。"
   }
 ]
